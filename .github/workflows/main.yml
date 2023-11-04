@@ -29,7 +29,7 @@ jobs:
           ENV: "production"
           ADMIN_SECRET: ${{ secrets.ADMIN_SECRET }}
           DATABASE_TYPE: ${{ secrets.DATABASE_TYPE }}
-          DATABASE_URL: "file:/auth/data.db"
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
           PORT: 8080
           AUTHORIZER_URL: "https://auth.moochee.us"
           DISABLE_BASIC_AUTHENTICATION: true
