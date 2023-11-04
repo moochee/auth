@@ -18,14 +18,24 @@ jobs:
         with:
           ref: "main"
           fetch-depth: 0
-    #   - name: Create SSH key
-    #     run: |
-    #       install -m 600 -D /dev/null ~/.ssh/id_rsa
-    #       echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-    #       ssh-keyscan -H moochee.us > ~/.ssh/known_hosts
-    #   - name: Build, test and deploy
-    #     run: ./pipeline.sh
-    #     env:
-    #       CLIENT_ID: ${{ secrets.CLIENT_ID }}
-    #       CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-    #       SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+      - name: Create SSH key
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          ssh-keyscan -H moochee.us > ~/.ssh/known_hosts
+      - name: Deploy
+        run: ./pipeline.sh
+        env:
+          ENV: production
+          ADMIN_SECRET: ${{ secrets.ADMIN_SECRET }}
+          DATABASE_TYPE: ${{ secrets.DATABASE_TYPE }}
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          PORT: 8080
+          AUTHORIZER_URL: https://auth.moochee.us
+          DISABLE_BASIC_AUTHENTICATION: true
+          ROLES: free,pro
+          DEFAULT_ROLES: free
+          JWT_ROLE_CLAIM: role
+          COOKIE_NAME: authorizer
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
