@@ -26,16 +26,16 @@ jobs:
       - name: Deploy
         run: ./pipeline.sh
         env:
-          ENV: production
+          ENV: "production"
           ADMIN_SECRET: ${{ secrets.ADMIN_SECRET }}
           DATABASE_TYPE: ${{ secrets.DATABASE_TYPE }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           PORT: 8080
-          AUTHORIZER_URL: https://auth.moochee.us
+          AUTHORIZER_URL: "https://auth.moochee.us"
           DISABLE_BASIC_AUTHENTICATION: true
-          ROLES: free,pro
-          DEFAULT_ROLES: free
-          JWT_ROLE_CLAIM: role
-          COOKIE_NAME: authorizer
+          ROLES: "free,pro"
+          DEFAULT_ROLES: "free"
+          JWT_ROLE_CLAIM: "role"
+          COOKIE_NAME: "authorizer"
           GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
           GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
