@@ -27,7 +27,7 @@ dokku config:set --no-restart ${app_name} \
     COOKIE_NAME=$COOKIE_NAME \
     GOOGLE_CLIENT_ID=$GOOGLE_CLIENT_ID \
     GOOGLE_CLIENT_SECRET=$GOOGLE_CLIENT_SECRET
-# git push dokku main
+git push dokku main
 
-# echo "Maping public route"
-# dokku domains:add ${app_name} moochee.us
+echo "Maping public route"
+dokku domains:add ${app_name} moochee.us
