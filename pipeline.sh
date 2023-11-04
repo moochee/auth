@@ -28,6 +28,3 @@ dokku config:set --no-restart ${app_name} \
     GOOGLE_CLIENT_ID=$GOOGLE_CLIENT_ID \
     GOOGLE_CLIENT_SECRET=$GOOGLE_CLIENT_SECRET
 git push dokku main
-
-echo "Maping public route"
-dokku domains:add ${app_name} moochee.us
