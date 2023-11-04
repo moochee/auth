@@ -4,4 +4,4 @@ EXPOSE 8080
 
 USER authorizer
 
-CMD [ "/app/build/server" ]
+CMD [ "/authorizer/build/server" ]
