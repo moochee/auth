@@ -18,6 +18,5 @@ dokku config:set --no-restart ${app_name} \
     ADMIN_SECRET=$ADMIN_SECRET \
     DATABASE_TYPE=$DATABASE_TYPE \
     DATABASE_URL=$DATABASE_URL \
-    AUTHORIZER_URL="https://auth.moochee.us" \
-    LOG_LEVEL="debug"
+    AUTHORIZER_URL="https://auth.moochee.us"
 git push dokku main
