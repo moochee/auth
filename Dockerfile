@@ -1,4 +1,4 @@
-FROM lakhansamani/authorizer:1.3.4
+FROM lakhansamani/authorizer:1.4.3
 
 EXPOSE 8080
 
